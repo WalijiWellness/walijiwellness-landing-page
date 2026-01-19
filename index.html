@@ -1,617 +1,947 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Waliji Wellness Ltd - Empowering Health & Wellness Through Digital Marketing</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <style>
-        body {
-            box-sizing: border-box;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.6;
-        }
-        
-        .hero-gradient {
-            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 25%, #2563eb 50%, #3b82f6 75%, #60a5fa 100%);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero-gradient::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 30% 20%, rgba(16, 185, 129, 0.08) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 80%, rgba(59, 130, 246, 0.08) 0%, transparent 50%);
-        }
-        
-        .glass-effect {
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(226, 232, 240, 0.3);
-        }
-        
-        .premium-card {
-            background: #ffffff;
-            border: 1px solid rgba(226, 232, 240, 0.6);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .premium-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-            transition: left 0.6s;
-        }
-        
-        .premium-card:hover::before {
-            left: 100%;
-        }
-        
-        .premium-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.12);
-            border-color: rgba(59, 130, 246, 0.2);
-        }
-        
-        .floating-element {
-            animation: float 8s ease-in-out infinite;
-        }
-        
-        .floating-element:nth-child(2) {
-            animation-delay: -3s;
-        }
-        
-        .floating-element:nth-child(3) {
-            animation-delay: -6s;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-        }
-        
-        .gradient-text {
-            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .premium-button {
-            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-            box-shadow: 0 8px 20px -5px rgba(37, 99, 235, 0.3);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .premium-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s;
-        }
-        
-        .premium-button:hover::before {
-            left: 100%;
-        }
-        
-        .premium-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 15px 30px -8px rgba(37, 99, 235, 0.4);
-        }
-        
-        .section-divider {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #e2e8f0, transparent);
-        }
-        
-        .premium-input {
-            transition: all 0.3s ease;
-            border: 1px solid #d1d5db;
-        }
-        
-        .premium-input:focus {
-            border-color: #2563eb;
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-            outline: none;
-        }
-        
-        .stats-counter {
-            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
-            border: 1px solid rgba(37, 99, 235, 0.15);
-        }
-        
-        .icon-glow {
-            filter: drop-shadow(0 4px 8px rgba(16, 185, 129, 0.3));
-        }
-        
-        .text-shadow {
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        
-        .parallax-bg {
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-    </style>
-</head>
-<body class="bg-white">
-    <!-- Header -->
-    <header class="glass-effect shadow-2xl sticky top-0 z-50 border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center py-6">
-                <div class="flex items-center">
-                    <div class="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl flex items-center justify-center mr-4 shadow-md">
-                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                        </svg>
-                    </div>
-                    <div>
-                        <h1 class="text-2xl font-black text-gray-900 text-shadow tracking-tight">Waliji Wellness Ltd</h1>
-                        <p class="text-sm gradient-text font-semibold tracking-wide">Empowering Health & Wellness Through Digital Marketing</p>
-                    </div>
-                </div>
-                <nav class="hidden md:flex space-x-10">
-                    <a href="#about" class="text-gray-700 hover:text-blue-600 font-semibold text-sm tracking-wide transition-all duration-300">About</a>
-                    <a href="#services" class="text-gray-700 hover:text-blue-600 font-semibold text-sm tracking-wide transition-all duration-300">Services</a>
-                    <a href="#contact" class="text-gray-700 hover:text-blue-600 font-semibold text-sm tracking-wide transition-all duration-300">Contact</a>
-                </nav>
-            </div>
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Waliji Wellness - Transform Your Body &amp; Mind</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="/_sdk/data_sdk.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&amp;family=Raleway:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    body {
+      box-sizing: border-box;
+      font-family: 'Raleway', sans-serif;
+    }
+    
+    h1, h2, h3, h4 {
+      font-family: 'Cormorant Garamond', serif;
+      letter-spacing: -0.01em;
+    }
+    
+    .gradient-mesh {
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(143, 155, 130, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(224, 138, 118, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 40% 20%, rgba(227, 180, 74, 0.1) 0%, transparent 50%),
+        linear-gradient(180deg, #FFFFFF 0%, #F5F4EF 100%);
+    }
+    
+    .glass-card {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    .slide-in-left {
+      animation: slideInLeft 0.8s ease-out;
+    }
+    
+    .slide-in-right {
+      animation: slideInRight 0.8s ease-out;
+    }
+    
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    .fade-in-up {
+      animation: fadeInUp 0.6s ease-out;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .shimmer {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .shimmer::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      animation: shimmer 3s infinite;
+    }
+    
+    @keyframes shimmer {
+      0% { left: -100%; }
+      100% { left: 100%; }
+    }
+    
+    .feature-card {
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 2px;
+      background: linear-gradient(135deg, transparent, rgba(224, 138, 118, 0.5), transparent);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .feature-card:hover::before {
+      opacity: 1;
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+    }
+    
+    .btn-gradient {
+      background: linear-gradient(135deg, #E08A76 0%, #E3B44A 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .btn-gradient::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: left 0.5s ease;
+    }
+    
+    .btn-gradient:hover::before {
+      left: 100%;
+    }
+    
+    .sticky-nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      transition: all 0.3s ease;
+    }
+    
+    .sticky-nav.scrolled {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+    
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+    
+    .faq-answer.active {
+      max-height: 500px;
+      padding-top: 1rem;
+    }
+    
+    .faq-icon {
+      transition: transform 0.3s ease;
+    }
+    
+    .faq-icon.active {
+      transform: rotate(180deg);
+    }
+    
+    .comparison-table {
+      border-collapse: separate;
+      border-spacing: 0;
+    }
+    
+    .comparison-table td, .comparison-table th {
+      border-bottom: 1px solid rgba(43, 43, 43, 0.1);
+      padding: 1rem;
+    }
+    
+    .comparison-highlight {
+      background: linear-gradient(135deg, rgba(224, 138, 118, 0.05) 0%, rgba(227, 180, 74, 0.05) 100%);
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+ </head>
+ <body class="h-full">
+  <div id="app-wrapper" class="w-full h-full overflow-auto"><!-- Sticky Navigation -->
+   <nav id="main-nav" class="sticky-nav w-full py-4 px-6 md:px-12">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+     <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, #8F9B82 0%, #E08A76 100%);">
+       <svg class="w-6 h-6 text-white" viewbox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+       </svg>
+      </div>
+      <div>
+       <div class="text-lg font-bold" style="color: #2B2B2B;">
+        Waliji Wellness
+       </div>
+       <div class="text-xs" style="color: #8F9B82;">
+        Transform Your Life
+       </div>
+      </div>
+     </div>
+     <div class="hidden md:flex items-center gap-6">
+      <div class="flex items-center gap-2 px-4 py-2 rounded-full" style="background: rgba(227, 180, 74, 0.1);">
+       <div class="flex -space-x-2">
+        <div class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style="background: #E08A76; color: #FFFFFF;">
+         S
         </div>
-    </header>
+        <div class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style="background: #E3B44A; color: #FFFFFF;">
+         M
+        </div>
+        <div class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style="background: #8F9B82; color: #FFFFFF;">
+         J
+        </div>
+       </div><span class="text-sm font-medium" style="color: #2B2B2B;"><span id="member-count">47,243</span>+ members</span>
+      </div><a href="#lead-form" class="px-6 py-2 rounded-xl font-semibold transition-all" style="background: linear-gradient(135deg, #E08A76 0%, #E3B44A 100%); color: #FFFFFF;"> Join Free </a>
+     </div>
+    </div>
+   </nav><!-- Hero Section -->
+   <section class="gradient-mesh py-16 md:py-24 px-6 md:px-12">
+    <div class="max-w-7xl mx-auto">
+     <div class="grid md:grid-cols-2 gap-12 items-center"><!-- Left Content -->
+      <div class="slide-in-left">
+       <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 shimmer" style="background: rgba(224, 138, 118, 0.15); border: 1px solid rgba(224, 138, 118, 0.3);"><span class="w-2 h-2 rounded-full animate-pulse" style="background: #E08A76;"></span> <span class="text-sm font-semibold" style="color: #E08A76;">Limited Time: Free Lifetime Access</span>
+       </div>
+       <h1 id="headline" class="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6" style="color: #2B2B2B;">Finally Lose Weight &amp; Feel <span style="background: linear-gradient(135deg, #E08A76 0%, #E3B44A 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Energized</span> Again</h1>
+       <p id="subheadline" class="text-lg md:text-xl leading-relaxed mb-8" style="color: rgba(43, 43, 43, 0.7);">Discover the simple, science-backed approach that helps real people achieve lasting results—without extreme diets or exhausting workouts.</p><!-- Trust Indicators -->
+       <div class="flex flex-wrap items-center gap-6 mb-8">
+        <div class="flex items-center gap-2">
+         <div class="flex" style="color: #E3B44A;">
+          <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 20 20">
+           <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+          </svg>
+          <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 20 20">
+           <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+          </svg>
+          <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 20 20">
+           <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+          </svg>
+          <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 20 20">
+           <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+          </svg>
+          <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 20 20">
+           <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+          </svg>
+         </div><span class="font-bold" style="color: #2B2B2B;">4.9/5</span> <span class="text-sm" style="color: rgba(43, 43, 43, 0.6);">(12,847 reviews)</span>
+        </div>
+        <div class="h-6" style="width: 1px; background: rgba(43, 43, 43, 0.2);"></div>
+        <div class="flex items-center gap-2">
+         <svg class="w-5 h-5" style="color: #8F9B82;" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+         </svg><span class="text-sm font-medium" style="color: #2B2B2B;">Trusted by 47,000+</span>
+        </div>
+       </div><!-- Form -->
+       <div id="form-container" class="glass-card rounded-2xl p-8 shadow-2xl">
+        <form id="lead-form" class="space-y-4">
+         <div><label for="name" class="block text-sm font-semibold mb-2" style="color: #2B2B2B;">Your First Name</label> <input type="text" id="name" name="name" placeholder="Enter your first name" required class="w-full px-5 py-4 text-base rounded-xl transition-all duration-200" style="border: 2px solid rgba(143, 155, 130, 0.2); background: #FFFFFF; color: #2B2B2B;" onfocus="this.style.borderColor='#8F9B82'; this.style.boxShadow='0 0 0 3px rgba(143, 155, 130, 0.1)'" onblur="this.style.borderColor='rgba(143, 155, 130, 0.2)'; this.style.boxShadow='none'">
+         </div>
+         <div><label for="email" class="block text-sm font-semibold mb-2" style="color: #2B2B2B;">Your Email Address</label> <input type="email" id="email" name="email" placeholder="Enter your email address" required class="w-full px-5 py-4 text-base rounded-xl transition-all duration-200" style="border: 2px solid rgba(143, 155, 130, 0.2); background: #FFFFFF; color: #2B2B2B;" onfocus="this.style.borderColor='#8F9B82'; this.style.boxShadow='0 0 0 3px rgba(143, 155, 130, 0.1)'" onblur="this.style.borderColor='rgba(143, 155, 130, 0.2)'; this.style.boxShadow='none'">
+         </div><button type="submit" id="submit-btn" class="w-full btn-gradient text-white font-bold text-lg py-4 px-8 rounded-xl transition-all duration-200 flex items-center justify-center gap-2 shadow-lg"> <span id="cta-text">Get Free Access</span>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+          </svg></button>
+        </form>
+        <div class="flex items-center justify-center gap-2 mt-4 text-sm" style="color: rgba(43, 43, 43, 0.6);">
+         <svg class="w-4 h-4" style="color: #8F9B82;" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
+         </svg><span>100% secure. No spam. Unsubscribe anytime.</span>
+        </div>
+       </div><!-- Success Message (hidden by default) -->
+       <div id="success-message" class="hidden glass-card rounded-2xl p-8 text-center shadow-2xl">
+        <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4" style="background: rgba(143, 155, 130, 0.15);">
+         <svg class="w-10 h-10" style="color: #8F9B82;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+         </svg>
+        </div>
+        <h3 class="text-2xl font-bold mb-2" style="color: #2B2B2B;">Welcome to Waliji Wellness! 🎉</h3>
+        <p class="mb-4" style="color: rgba(43, 43, 43, 0.7);">Check your inbox for instant access to your personalized wellness plan.</p>
+        <div class="flex items-center justify-center gap-2" style="color: #E08A76;">
+         <svg class="w-5 h-5 animate-spin" fill="none" viewbox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" /> <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+         </svg><span class="text-sm font-medium">Preparing your dashboard...</span>
+        </div>
+       </div>
+      </div><!-- Right Image -->
+      <div class="slide-in-right relative">
+       <div class="relative">
+        <div class="absolute inset-0 rounded-3xl transform rotate-3" style="background: linear-gradient(135deg, rgba(224, 138, 118, 0.2) 0%, rgba(227, 180, 74, 0.2) 100%); filter: blur(20px);"></div>
+        <div class="relative glass-card rounded-3xl p-6 shadow-2xl">
+         <svg class="w-full h-auto" viewbox="0 0 400 400" fill="none"><!-- Background --> <rect width="400" height="400" rx="24" fill="url(#heroGradient)" /> <defs>
+           <lineargradient id="heroGradient" x1="0" y1="0" x2="400" y2="400">
+            <stop offset="0%" stop-color="#f0fdf4" />
+            <stop offset="100%" stop-color="#ecfeff" />
+           </lineargradient>
+          </defs> <!-- Person illustration --> <ellipse cx="200" cy="380" rx="70" ry="10" fill="rgba(143, 155, 130, 0.2)" /> <!-- Body --> <path d="M200 100 Q180 120 175 160 L170 220 Q165 260 180 300 L185 340 Q188 355 200 355 Q212 355 215 340 L220 300 Q235 260 230 220 L225 160 Q220 120 200 100" fill="#fcd34d" /> <!-- Athletic wear --> <path d="M175 140 Q180 130 200 125 Q220 130 225 140 L230 200 Q220 205 200 205 Q180 205 170 200 L175 140" fill="#8F9B82" /> <!-- Arms --> <path d="M170 145 Q150 150 140 180 Q135 200 145 210 Q155 205 160 190 L170 160" fill="#fcd34d" /> <path d="M230 145 Q250 150 260 180 Q265 200 255 210 Q245 205 240 190 L230 160" fill="#fcd34d" /> <!-- Head --> <circle cx="200" cy="90" r="38" fill="#fcd34d" /> <!-- Hair --> <path d="M170 75 Q175 50 200 45 Q225 50 230 75 Q235 70 230 60 Q220 40 200 38 Q180 40 170 60 Q165 70 170 75" fill="#2B2B2B" /> <!-- Facial features --> <circle cx="188" cy="85" r="3" fill="#2B2B2B" /> <circle cx="212" cy="85" r="3" fill="#2B2B2B" /> <path d="M195 100 Q200 105 205 100" stroke="#2B2B2B" stroke-width="2" stroke-linecap="round" fill="none" /> <!-- Yoga mat --> <rect x="110" y="350" width="180" height="10" rx="5" fill="#E08A76" /> <!-- Decorative elements --> <circle cx="80" cy="120" r="25" fill="rgba(143, 155, 130, 0.2)" /> <circle cx="320" cy="150" r="30" fill="rgba(224, 138, 118, 0.2)" /> <circle cx="330" cy="280" r="20" fill="rgba(227, 180, 74, 0.2)" /> <circle cx="70" cy="250" r="22" fill="rgba(143, 155, 130, 0.15)" /> <!-- Sparkles --> <path d="M100 180 L105 190 L115 185 L105 195 L100 205 L95 195 L85 185 L95 190 Z" fill="#E3B44A" /> <path d="M300 100 L303 108 L311 105 L303 112 L300 120 L297 112 L289 105 L297 108 Z" fill="#E3B44A" /> <path d="M150 320 L152 326 L158 324 L152 330 L150 336 L148 330 L142 324 L148 326 Z" fill="#E08A76" />
+         </svg>
+        </div><!-- Floating stat cards -->
+        <div class="absolute -top-4 -right-4 glass-card rounded-2xl p-4 shadow-xl" style="animation: fadeInUp 0.6s ease-out 0.3s both;">
+         <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background: rgba(227, 180, 74, 0.2);">
+           <svg class="w-6 h-6" style="color: #E3B44A;" fill="currentColor" viewbox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+           </svg>
+          </div>
+          <div>
+           <div class="text-lg font-bold" style="color: #2B2B2B;">
+            4.9★
+           </div>
+           <div class="text-xs" style="color: rgba(43, 43, 43, 0.6);">
+            12K+ reviews
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="absolute -bottom-4 -left-4 glass-card rounded-2xl p-4 shadow-xl" style="animation: fadeInUp 0.6s ease-out 0.5s both;">
+         <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background: rgba(224, 138, 118, 0.2);">
+           <svg class="w-6 h-6" style="color: #E08A76;" fill="currentColor" viewbox="0 0 20 20"><path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" />
+           </svg>
+          </div>
+          <div>
+           <div class="text-lg font-bold" style="color: #2B2B2B;">
+            47,243
+           </div>
+           <div class="text-xs" style="color: rgba(43, 43, 43, 0.6);">
+            Active members
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Countdown Timer Section -->
+   <section class="py-12 px-6 md:px-12 relative overflow-hidden" style="background: linear-gradient(135deg, #2B2B2B 0%, #1a1a1a 100%);">
+    <div class="max-w-4xl mx-auto text-center relative z-10">
+     <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-4" style="background: rgba(224, 138, 118, 0.15); border: 1px solid rgba(224, 138, 118, 0.3);">
+      <svg class="w-4 h-4" style="color: #E08A76;" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
+      </svg><span class="text-sm font-medium" style="color: #E08A76;">Limited Time Offer</span>
+     </div>
+     <h3 class="text-2xl md:text-3xl font-bold mb-2" style="color: #F5F4EF;">Free Access Ends In:</h3>
+     <p class="text-sm mb-6" style="color: rgba(245, 244, 239, 0.7);">Lock in your free lifetime access before this timer expires</p>
+     <div class="flex justify-center gap-3 md:gap-6 mb-6">
+      <div class="flex flex-col items-center">
+       <div class="w-20 h-20 md:w-24 md:h-24 rounded-2xl flex items-center justify-center mb-2" style="background: rgba(245, 244, 239, 0.1); border: 1px solid rgba(245, 244, 239, 0.2);"><span id="hours" class="text-3xl md:text-4xl font-bold" style="color: #E08A76;">23</span>
+       </div><span class="text-xs uppercase tracking-wider" style="color: rgba(245, 244, 239, 0.6);">Hours</span>
+      </div>
+      <div class="flex flex-col items-center">
+       <div class="w-20 h-20 md:w-24 md:h-24 rounded-2xl flex items-center justify-center mb-2" style="background: rgba(245, 244, 239, 0.1); border: 1px solid rgba(245, 244, 239, 0.2);"><span id="minutes" class="text-3xl md:text-4xl font-bold" style="color: #E08A76;">45</span>
+       </div><span class="text-xs uppercase tracking-wider" style="color: rgba(245, 244, 239, 0.6);">Minutes</span>
+      </div>
+      <div class="flex flex-col items-center">
+       <div class="w-20 h-20 md:w-24 md:h-24 rounded-2xl flex items-center justify-center mb-2" style="background: rgba(245, 244, 239, 0.1); border: 1px solid rgba(245, 244, 239, 0.2);"><span id="seconds" class="text-3xl md:text-4xl font-bold" style="color: #E08A76;">32</span>
+       </div><span class="text-xs uppercase tracking-wider" style="color: rgba(245, 244, 239, 0.6);">Seconds</span>
+      </div>
+     </div><a href="#lead-form" class="inline-flex items-center gap-2 font-bold text-base py-3 px-6 rounded-xl transition-all duration-200" style="background: linear-gradient(135deg, #E08A76 0%, #E3B44A 100%); color: #FFFFFF; box-shadow: 0 4px 20px rgba(224, 138, 118, 0.4);"> <span>Claim Your Free Access Now</span>
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+      </svg></a>
+    </div><!-- Decorative background -->
+    <div class="absolute top-0 left-0 w-64 h-64 rounded-full opacity-10" style="background: radial-gradient(circle, #E08A76 0%, transparent 70%); filter: blur(60px);"></div>
+    <div class="absolute bottom-0 right-0 w-64 h-64 rounded-full opacity-10" style="background: radial-gradient(circle, #E3B44A 0%, transparent 70%); filter: blur(60px);"></div>
+   </section><!-- Social Proof Stats -->
+   <section class="py-16 px-6 md:px-12" style="background: #FFFFFF;">
+    <div class="max-w-6xl mx-auto">
+     <div class="grid md:grid-cols-4 gap-8 text-center">
+      <div class="fade-in-up">
+       <div class="text-4xl md:text-5xl font-bold mb-2" style="background: linear-gradient(135deg, #E08A76 0%, #E3B44A 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+        47,243+
+       </div>
+       <div class="text-sm font-medium" style="color: rgba(43, 43, 43, 0.6);">
+        Active Members
+       </div>
+      </div>
+      <div class="fade-in-up" style="animation-delay: 0.1s;">
+       <div class="text-4xl md:text-5xl font-bold mb-2" style="background: linear-gradient(135deg, #8F9B82 0%, #E08A76 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+        12,847
+       </div>
+       <div class="text-sm font-medium" style="color: rgba(43, 43, 43, 0.6);">
+        5-Star Reviews
+       </div>
+      </div>
+      <div class="fade-in-up" style="animation-delay: 0.2s;">
+       <div class="text-4xl md:text-5xl font-bold mb-2" style="background: linear-gradient(135deg, #E3B44A 0%, #8F9B82 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+        92%
+       </div>
+       <div class="text-sm font-medium" style="color: rgba(43, 43, 43, 0.6);">
+        Success Rate
+       </div>
+      </div>
+      <div class="fade-in-up" style="animation-delay: 0.3s;">
+       <div class="text-4xl md:text-5xl font-bold mb-2" style="background: linear-gradient(135deg, #E08A76 0%, #8F9B82 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+        4.9★
+       </div>
+       <div class="text-sm font-medium" style="color: rgba(43, 43, 43, 0.6);">
+        Average Rating
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Benefits Section -->
+   <section class="py-16 md:py-24 px-6 md:px-12 gradient-mesh">
+    <div class="max-w-6xl mx-auto">
+     <div class="text-center mb-16">
+      <div class="inline-block px-4 py-2 rounded-full mb-4" style="background: rgba(143, 155, 130, 0.1); color: #8F9B82; font-weight: 600;">
+       WHAT YOU'LL DISCOVER
+      </div>
+      <h2 class="text-4xl md:text-5xl font-bold mb-4" style="color: #2B2B2B;">Transform Your Life in 4 Simple Steps</h2>
+      <p class="text-lg max-w-2xl mx-auto" style="color: rgba(43, 43, 43, 0.7);">Evidence-based strategies that fit seamlessly into your busy lifestyle</p>
+     </div>
+     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="feature-card glass-card rounded-2xl p-6">
+       <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-4" style="background: linear-gradient(135deg, rgba(224, 138, 118, 0.2) 0%, rgba(227, 180, 74, 0.2) 100%);">
+        <svg class="w-7 h-7" style="color: #E08A76;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
+       </div>
+       <h3 class="text-lg font-bold mb-2" id="benefit-1-title" style="color: #2B2B2B;">Boost Your Energy</h3>
+       <p class="text-sm leading-relaxed" id="benefit-1-text" style="color: rgba(43, 43, 43, 0.7);">Wake up feeling refreshed and maintain steady energy throughout your day.</p>
+      </div>
+      <div class="feature-card glass-card rounded-2xl p-6">
+       <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-4" style="background: linear-gradient(135deg, rgba(143, 155, 130, 0.2) 0%, rgba(224, 138, 118, 0.2) 100%);">
+        <svg class="w-7 h-7" style="color: #8F9B82;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
+        </svg>
+       </div>
+       <h3 class="text-lg font-bold mb-2" id="benefit-2-title" style="color: #2B2B2B;">Rev Up Metabolism</h3>
+       <p class="text-sm leading-relaxed" id="benefit-2-text" style="color: rgba(43, 43, 43, 0.7);">Learn the natural ways to support your body's fat-burning potential.</p>
+      </div>
+      <div class="feature-card glass-card rounded-2xl p-6">
+       <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-4" style="background: linear-gradient(135deg, rgba(227, 180, 74, 0.2) 0%, rgba(143, 155, 130, 0.2) 100%);">
+        <svg class="w-7 h-7" style="color: #E3B44A;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+        </svg>
+       </div>
+       <h3 class="text-lg font-bold mb-2" id="benefit-3-title" style="color: #2B2B2B;">Sustainable Results</h3>
+       <p class="text-sm leading-relaxed" id="benefit-3-text" style="color: rgba(43, 43, 43, 0.7);">No crash diets or extreme measures—just lasting lifestyle changes that stick.</p>
+      </div>
+      <div class="feature-card glass-card rounded-2xl p-6">
+       <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-4" style="background: linear-gradient(135deg, rgba(224, 138, 118, 0.2) 0%, rgba(143, 155, 130, 0.2) 100%);">
+        <svg class="w-7 h-7" style="color: #E08A76;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+       </div>
+       <h3 class="text-lg font-bold mb-2" id="benefit-4-title" style="color: #2B2B2B;">Simple Routines</h3>
+       <p class="text-sm leading-relaxed" id="benefit-4-text" style="color: rgba(43, 43, 43, 0.7);">Quick, effective routines designed for busy people with real lives.</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- Comparison Table -->
+   <section class="py-16 md:py-24 px-6 md:px-12" style="background: #FFFFFF;">
+    <div class="max-w-5xl mx-auto">
+     <div class="text-center mb-12">
+      <h2 class="text-4xl md:text-5xl font-bold mb-4" style="color: #2B2B2B;">Why Waliji Wellness Works</h2>
+      <p class="text-lg" style="color: rgba(43, 43, 43, 0.7);">See how we compare to traditional approaches</p>
+     </div>
+     <div class="glass-card rounded-2xl overflow-hidden shadow-xl">
+      <table class="comparison-table w-full">
+       <thead>
+        <tr style="background: rgba(143, 155, 130, 0.1);">
+         <th class="text-left py-4 px-6" style="color: #2B2B2B; font-weight: 600;"></th>
+         <th class="text-center py-4 px-6" style="color: #2B2B2B; font-weight: 700;">Waliji Wellness</th>
+         <th class="text-center py-4 px-6" style="color: rgba(43, 43, 43, 0.6); font-weight: 600;">Fad Diets</th>
+         <th class="text-center py-4 px-6" style="color: rgba(43, 43, 43, 0.6); font-weight: 600;">Gym Programs</th>
+        </tr>
+       </thead>
+       <tbody>
+        <tr class="comparison-highlight">
+         <td class="py-4 px-6 font-semibold" style="color: #2B2B2B;">Time Required</td>
+         <td class="text-center py-4 px-6">
+          <div class="flex items-center justify-center gap-1" style="color: #8F9B82;">
+           <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+           </svg><span class="font-semibold">15 min/day</span>
+          </div></td>
+         <td class="text-center py-4 px-6" style="color: rgba(43, 43, 43, 0.6);">All day planning</td>
+         <td class="text-center py-4 px-6" style="color: rgba(43, 43, 43, 0.6);">1-2 hours/day</td>
+        </tr>
+        <tr>
+         <td class="py-4 px-6 font-semibold" style="color: #2B2B2B;">Cost</td>
+         <td class="text-center py-4 px-6">
+          <div class="flex items-center justify-center gap-1" style="color: #8F9B82;">
+           <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+           </svg><span class="font-semibold">FREE</span>
+          </div></td>
+         <td class="text-center py-4 px-6" style="color: rgba(43, 43, 43, 0.6);">$200+/month</td>
+         <td class="text-center py-4 px-6" style="color: rgba(43, 43, 43, 0.6);">$100+/month</td>
+        </tr>
+        <tr class="comparison-highlight">
+         <td class="py-4 px-6 font-semibold" style="color: #2B2B2B;">Sustainable</td>
+         <td class="text-center py-4 px-6">
+          <div class="flex items-center justify-center gap-1" style="color: #8F9B82;">
+           <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+           </svg><span class="font-semibold">Lifetime</span>
+          </div></td>
+         <td class="text-center py-4 px-6">
+          <svg class="w-5 h-5 mx-auto" style="color: rgba(224, 138, 118, 0.5);" fill="currentColor" viewbox="0 0 20 20">
+           <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+          </svg></td>
+         <td class="text-center py-4 px-6">
+          <svg class="w-5 h-5 mx-auto" style="color: rgba(224, 138, 118, 0.5);" fill="currentColor" viewbox="0 0 20 20">
+           <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+          </svg></td>
+        </tr>
+        <tr>
+         <td class="py-4 px-6 font-semibold" style="color: #2B2B2B;">Flexibility</td>
+         <td class="text-center py-4 px-6">
+          <div class="flex items-center justify-center gap-1" style="color: #8F9B82;">
+           <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+           </svg><span class="font-semibold">Fully adaptable</span>
+          </div></td>
+         <td class="text-center py-4 px-6" style="color: rgba(43, 43, 43, 0.6);">Very restrictive</td>
+         <td class="text-center py-4 px-6" style="color: rgba(43, 43, 43, 0.6);">Fixed schedules</td>
+        </tr>
+        <tr class="comparison-highlight">
+         <td class="py-4 px-6 font-semibold" style="color: #2B2B2B;">Results</td>
+         <td class="text-center py-4 px-6">
+          <div class="flex items-center justify-center gap-1" style="color: #8F9B82;">
+           <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+           </svg><span class="font-semibold">92% success</span>
+          </div></td>
+         <td class="text-center py-4 px-6" style="color: rgba(43, 43, 43, 0.6);">20% success</td>
+         <td class="text-center py-4 px-6" style="color: rgba(43, 43, 43, 0.6);">35% success</td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </section><!-- FAQ Section -->
+   <section class="py-16 md:py-24 px-6 md:px-12 gradient-mesh">
+    <div class="max-w-4xl mx-auto">
+     <div class="text-center mb-12">
+      <h2 class="text-4xl md:text-5xl font-bold mb-4" style="color: #2B2B2B;">Frequently Asked Questions</h2>
+      <p class="text-lg" style="color: rgba(43, 43, 43, 0.7);">Everything you need to know about Waliji Wellness</p>
+     </div>
+     <div class="space-y-4">
+      <div class="glass-card rounded-2xl overflow-hidden"><button class="faq-button w-full text-left px-6 py-5 flex items-center justify-between" onclick="toggleFaq(0)"> <span class="font-semibold text-lg" style="color: #2B2B2B;">Is Waliji Wellness really free?</span>
+        <svg class="faq-icon w-5 h-5" style="color: #E08A76;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg></button>
+       <div class="faq-answer px-6">
+        <p style="color: rgba(43, 43, 43, 0.7); padding-bottom: 1rem;">Yes! Waliji Wellness is 100% free with no hidden costs. We believe everyone deserves access to quality wellness resources. You'll get full lifetime access to our program, community, and all future updates without spending a penny.</p>
+       </div>
+      </div>
+      <div class="glass-card rounded-2xl overflow-hidden"><button class="faq-button w-full text-left px-6 py-5 flex items-center justify-between" onclick="toggleFaq(1)"> <span class="font-semibold text-lg" style="color: #2B2B2B;">How much time do I need to commit?</span>
+        <svg class="faq-icon w-5 h-5" style="color: #E08A76;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg></button>
+       <div class="faq-answer px-6">
+        <p style="color: rgba(43, 43, 43, 0.7); padding-bottom: 1rem;">Our program is designed for busy people. You'll only need 15-20 minutes per day to see meaningful results. The routines are flexible and can be done at home, so they fit easily into any schedule.</p>
+       </div>
+      </div>
+      <div class="glass-card rounded-2xl overflow-hidden"><button class="faq-button w-full text-left px-6 py-5 flex items-center justify-between" onclick="toggleFaq(2)"> <span class="font-semibold text-lg" style="color: #2B2B2B;">Do I need any special equipment?</span>
+        <svg class="faq-icon w-5 h-5" style="color: #E08A76;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg></button>
+       <div class="faq-answer px-6">
+        <p style="color: rgba(43, 43, 43, 0.7); padding-bottom: 1rem;">No equipment necessary! Everything can be done with just your body weight. If you want to enhance your workouts, optional equipment suggestions are provided, but they're completely optional.</p>
+       </div>
+      </div>
+      <div class="glass-card rounded-2xl overflow-hidden"><button class="faq-button w-full text-left px-6 py-5 flex items-center justify-between" onclick="toggleFaq(3)"> <span class="font-semibold text-lg" style="color: #2B2B2B;">What if I've failed at diets before?</span>
+        <svg class="faq-icon w-5 h-5" style="color: #E08A76;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg></button>
+       <div class="faq-answer px-6">
+        <p style="color: rgba(43, 43, 43, 0.7); padding-bottom: 1rem;">That's exactly why we created Waliji Wellness! Traditional diets fail because they're unsustainable. Our approach focuses on small, lasting lifestyle changes rather than extreme restrictions. 92% of our members who tried and failed with other programs finally found success with us.</p>
+       </div>
+      </div>
+      <div class="glass-card rounded-2xl overflow-hidden"><button class="faq-button w-full text-left px-6 py-5 flex items-center justify-between" onclick="toggleFaq(4)"> <span class="font-semibold text-lg" style="color: #2B2B2B;">How quickly will I see results?</span>
+        <svg class="faq-icon w-5 h-5" style="color: #E08A76;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg></button>
+       <div class="faq-answer px-6">
+        <p style="color: rgba(43, 43, 43, 0.7); padding-bottom: 1rem;">Most members report feeling more energized within the first week. Visible physical changes typically begin around week 3-4. Remember, we focus on sustainable, healthy progress—not crash results that disappear quickly.</p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Final CTA -->
+   <section class="py-16 md:py-24 px-6 md:px-12" style="background: linear-gradient(135deg, #2B2B2B 0%, #1a1a1a 100%); position: relative; overflow: hidden;">
+    <div class="max-w-4xl mx-auto text-center relative z-10">
+     <h2 class="text-3xl md:text-5xl font-bold mb-4" style="color: #F5F4EF;">Ready to Start Your Transformation?</h2>
+     <p class="text-lg md:text-xl mb-8" style="color: rgba(245, 244, 239, 0.8);">Join 47,243 members who've already transformed their lives—completely free.</p>
+     <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8"><a href="#lead-form" class="w-full sm:w-auto btn-gradient text-white font-bold text-lg py-4 px-8 rounded-xl shadow-2xl inline-flex items-center justify-center gap-2"> <span>Get Free Lifetime Access</span>
+       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+       </svg></a>
+     </div>
+     <div class="flex flex-wrap items-center justify-center gap-6 text-sm" style="color: rgba(245, 244, 239, 0.6);">
+      <div class="flex items-center gap-2">
+       <svg class="w-5 h-5" style="color: #8F9B82;" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+       </svg><span>No credit card required</span>
+      </div>
+      <div class="flex items-center gap-2">
+       <svg class="w-5 h-5" style="color: #8F9B82;" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+       </svg><span>Cancel anytime</span>
+      </div>
+      <div class="flex items-center gap-2">
+       <svg class="w-5 h-5" style="color: #8F9B82;" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+       </svg><span>100% secure &amp; private</span>
+      </div>
+     </div>
+    </div><!-- Decorative elements -->
+    <div class="absolute top-0 left-0 w-96 h-96 rounded-full opacity-5" style="background: radial-gradient(circle, #E08A76 0%, transparent 70%); filter: blur(80px);"></div>
+    <div class="absolute bottom-0 right-0 w-96 h-96 rounded-full opacity-5" style="background: radial-gradient(circle, #E3B44A 0%, transparent 70%); filter: blur(80px);"></div>
+   </section><!-- Footer -->
+   <footer class="py-12 px-6 md:px-12" style="background: #2B2B2B;">
+    <div class="max-w-6xl mx-auto">
+     <div class="grid md:grid-cols-4 gap-8 mb-8">
+      <div class="md:col-span-2">
+       <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, #8F9B82 0%, #E08A76 100%);">
+         <svg class="w-6 h-6 text-white" viewbox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+         </svg>
+        </div>
+        <div>
+         <div class="text-lg font-bold" style="color: #F5F4EF;">
+          Waliji Wellness
+         </div>
+         <div class="text-xs" style="color: rgba(245, 244, 239, 0.6);">
+          Transform Your Life
+         </div>
+        </div>
+       </div>
+       <p class="text-sm leading-relaxed mb-4" style="color: rgba(245, 244, 239, 0.6);">Empowering 47,000+ people worldwide to achieve sustainable wellness through science-backed, simple strategies.</p>
+      </div>
+      <div>
+       <h4 class="font-semibold mb-3" style="color: #F5F4EF;">Quick Links</h4>
+       <ul class="space-y-2 text-sm">
+        <li><a href="#" class="transition-colors" style="color: rgba(245, 244, 239, 0.6);" onmouseover="this.style.color='#E08A76'" onmouseout="this.style.color='rgba(245, 244, 239, 0.6)'">About Us</a></li>
+        <li><a href="#" class="transition-colors" style="color: rgba(245, 244, 239, 0.6);" onmouseover="this.style.color='#E08A76'" onmouseout="this.style.color='rgba(245, 244, 239, 0.6)'">Success Stories</a></li>
+        <li><a href="#" class="transition-colors" style="color: rgba(245, 244, 239, 0.6);" onmouseover="this.style.color='#E08A76'" onmouseout="this.style.color='rgba(245, 244, 239, 0.6)'">Blog</a></li>
+        <li><a href="#" class="transition-colors" style="color: rgba(245, 244, 239, 0.6);" onmouseover="this.style.color='#E08A76'" onmouseout="this.style.color='rgba(245, 244, 239, 0.6)'">Contact</a></li>
+       </ul>
+      </div>
+      <div>
+       <h4 class="font-semibold mb-3" style="color: #F5F4EF;">Legal</h4>
+       <ul class="space-y-2 text-sm">
+        <li><a href="#" class="transition-colors" style="color: rgba(245, 244, 239, 0.6);" onmouseover="this.style.color='#E08A76'" onmouseout="this.style.color='rgba(245, 244, 239, 0.6)'">Privacy Policy</a></li>
+        <li><a href="#" class="transition-colors" style="color: rgba(245, 244, 239, 0.6);" onmouseover="this.style.color='#E08A76'" onmouseout="this.style.color='rgba(245, 244, 239, 0.6)'">Terms of Service</a></li>
+        <li><a href="#" class="transition-colors" style="color: rgba(245, 244, 239, 0.6);" onmouseover="this.style.color='#E08A76'" onmouseout="this.style.color='rgba(245, 244, 239, 0.6)'">Cookie Policy</a></li>
+        <li><a href="#" class="transition-colors" style="color: rgba(245, 244, 239, 0.6);" onmouseover="this.style.color='#E08A76'" onmouseout="this.style.color='rgba(245, 244, 239, 0.6)'">Disclaimer</a></li>
+       </ul>
+      </div>
+     </div>
+     <div class="pt-8" style="border-top: 1px solid rgba(245, 244, 239, 0.1);">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+       <p class="text-sm" style="color: rgba(245, 244, 239, 0.6);">© 2024 Waliji Wellness. All rights reserved.</p>
+       <div class="flex items-center gap-4"><a href="#" class="w-8 h-8 rounded-lg flex items-center justify-center transition-all" style="background: rgba(245, 244, 239, 0.1);" onmouseover="this.style.background='rgba(224, 138, 118, 0.2)'" onmouseout="this.style.background='rgba(245, 244, 239, 0.1)'">
+         <svg class="w-4 h-4" style="color: #F5F4EF;" fill="currentColor" viewbox="0 0 24 24">
+          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+         </svg></a> <a href="#" class="w-8 h-8 rounded-lg flex items-center justify-center transition-all" style="background: rgba(245, 244, 239, 0.1);" onmouseover="this.style.background='rgba(224, 138, 118, 0.2)'" onmouseout="this.style.background='rgba(245, 244, 239, 0.1)'">
+         <svg class="w-4 h-4" style="color: #F5F4EF;" fill="currentColor" viewbox="0 0 24 24">
+          <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+         </svg></a> <a href="#" class="w-8 h-8 rounded-lg flex items-center justify-center transition-all" style="background: rgba(245, 244, 239, 0.1);" onmouseover="this.style.background='rgba(224, 138, 118, 0.2)'" onmouseout="this.style.background='rgba(245, 244, 239, 0.1)'">
+         <svg class="w-4 h-4" style="color: #F5F4EF;" fill="currentColor" viewbox="0 0 24 24">
+          <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z" />
+         </svg></a>
+       </div>
+      </div>
+     </div>
+     <div class="mt-8 pt-8 text-center text-xs" style="border-top: 1px solid rgba(245, 244, 239, 0.1); color: rgba(245, 244, 239, 0.4);">
+      <p>Disclaimer: Individual results may vary. This site is not affiliated with any social media platform. The testimonials and examples provided are not guarantees of future results. Always consult with a healthcare provider before beginning any wellness program.</p>
+     </div>
+    </div>
+   </footer>
+  </div>
+  <script>
+    const defaultConfig = {
+      headline: "Finally Lose Weight & Feel Energized Again",
+      subheadline: "Discover the simple, science-backed approach that helps real people achieve lasting results—without extreme diets or exhausting workouts.",
+      cta_button_text: "Get Free Access",
+      benefit_1: "Boost Your Energy",
+      benefit_2: "Rev Up Metabolism",
+      benefit_3: "Sustainable Results",
+      benefit_4: "Simple Routines",
+      primary_color: "#E08A76",
+      secondary_color: "#F5F4EF",
+      text_color: "#2B2B2B",
+      background_color: "#8F9B82",
+      accent_color: "#E3B44A"
+    };
 
-    <!-- Hero Section -->
-    <section class="hero-gradient py-32 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <div class="text-center lg:text-left">
-                    <div class="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-8">
-                        <span class="w-2 h-2 bg-blue-400 rounded-full mr-3 animate-pulse"></span>
-                        <span class="text-white/90 text-sm font-medium">UK Registered Company • Est. 2023</span>
-                    </div>
-                    <h2 class="text-5xl lg:text-6xl font-black text-white mb-8 leading-tight text-shadow">
-                        Professional Digital Marketing for 
-                        <span class="gradient-text bg-gradient-to-r from-blue-300 to-cyan-300 bg-clip-text text-transparent">Wellness Brands</span>
-                    </h2>
-                    <p class="text-xl text-white/85 mb-12 leading-relaxed font-normal max-w-2xl">
-                        Waliji Wellness Ltd delivers comprehensive digital marketing solutions for health and wellness companies. We drive measurable results through strategic campaigns, affiliate partnerships, and targeted social media promotion.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-6">
-                        <a href="#contact" class="premium-button inline-flex items-center justify-center px-10 py-5 text-white font-bold rounded-2xl text-lg">
-                            Join Our Community
-                            <svg class="ml-3 w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                            </svg>
-                        </a>
-                        <a href="#services" class="inline-flex items-center justify-center px-10 py-5 bg-white/10 backdrop-blur-sm text-white font-bold rounded-2xl text-lg border border-white/20 hover:bg-white/20 transition-all duration-300">
-                            Our Services
-                        </a>
-                    </div>
-                </div>
-                <div class="relative">
-                    <!-- Floating Elements -->
-                    <div class="floating-element absolute top-10 left-10 w-20 h-20 bg-gradient-to-br from-green-400 to-emerald-500 rounded-3xl opacity-20"></div>
-                    <div class="floating-element absolute top-32 right-16 w-16 h-16 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-full opacity-30"></div>
-                    <div class="floating-element absolute bottom-20 left-20 w-12 h-12 bg-gradient-to-br from-purple-400 to-pink-500 rounded-2xl opacity-25"></div>
-                    
-                    <!-- Main Visual -->
-                    <div class="glass-effect rounded-3xl p-12 shadow-2xl">
-                        <svg class="w-full h-80" viewBox="0 0 400 320" fill="none">
-                            <!-- Central wellness hub -->
-                            <defs>
-                                <linearGradient id="centerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#10b981;stop-opacity:0.8" />
-                                    <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0.8" />
-                                </linearGradient>
-                                <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#10b981;stop-opacity:0.3" />
-                                    <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0.3" />
-                                </linearGradient>
-                            </defs>
-                            
-                            <!-- Outer rings -->
-                            <circle cx="200" cy="160" r="120" fill="url(#ringGrad)" opacity="0.3"/>
-                            <circle cx="200" cy="160" r="90" fill="url(#ringGrad)" opacity="0.5"/>
-                            <circle cx="200" cy="160" r="60" fill="url(#centerGrad)"/>
-                            
-                            <!-- Central icon -->
-                            <path d="M180 140 L190 150 L220 120" stroke="white" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                            
-                            <!-- Connection nodes -->
-                            <circle cx="120" cy="80" r="20" fill="#10b981" opacity="0.8"/>
-                            <circle cx="320" cy="100" r="18" fill="#3b82f6" opacity="0.8"/>
-                            <circle cx="340" cy="220" r="22" fill="#10b981" opacity="0.8"/>
-                            <circle cx="80" cy="240" r="16" fill="#3b82f6" opacity="0.8"/>
-                            <circle cx="60" cy="160" r="14" fill="#10b981" opacity="0.8"/>
-                            <circle cx="340" cy="160" r="20" fill="#3b82f6" opacity="0.8"/>
-                            
-                            <!-- Connection lines -->
-                            <path d="M140 100 L180 140" stroke="#10b981" stroke-width="3" opacity="0.6"/>
-                            <path d="M300 120 L220 140" stroke="#3b82f6" stroke-width="3" opacity="0.6"/>
-                            <path d="M320 200 L220 170" stroke="#10b981" stroke-width="3" opacity="0.6"/>
-                            <path d="M100 220 L180 180" stroke="#3b82f6" stroke-width="3" opacity="0.6"/>
-                            
-                            <!-- Icons in nodes -->
-                            <path d="M115 75 L125 85" stroke="white" stroke-width="2" fill="none"/>
-                            <path d="M315 95 L325 105" stroke="white" stroke-width="2" fill="none"/>
-                            <circle cx="340" cy="220" r="8" fill="white" opacity="0.8"/>
-                            <rect x="76" y="236" width="8" height="8" fill="white" opacity="0.8" rx="2"/>
-                        </svg>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Animated background elements -->
-        <div class="absolute inset-0 overflow-hidden">
-            <div class="floating-element absolute top-1/4 left-1/4 w-2 h-2 bg-white rounded-full opacity-30"></div>
-            <div class="floating-element absolute top-3/4 right-1/4 w-1 h-1 bg-green-400 rounded-full opacity-40"></div>
-            <div class="floating-element absolute top-1/2 left-1/6 w-1.5 h-1.5 bg-blue-400 rounded-full opacity-35"></div>
-        </div>
-    </section>
+    let config = { ...defaultConfig };
+    let isSubmitting = false;
 
-    <!-- About Section -->
-    <section id="about" class="py-32 bg-gradient-to-b from-white to-gray-50 relative">
-        <div class="section-divider absolute top-0 left-0 right-0"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-20">
-                <div class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-full border border-emerald-200 mb-8">
-                    <span class="text-sm font-bold gradient-text tracking-wide">ABOUT WALIJI WELLNESS</span>
-                </div>
-                <h2 class="text-4xl lg:text-6xl font-black text-gray-900 mb-8 text-shadow">About Waliji Wellness Ltd</h2>
-                <div class="w-32 h-1.5 bg-gradient-to-r from-emerald-600 to-teal-600 mx-auto rounded-full"></div>
-            </div>
-            <div class="grid lg:grid-cols-2 gap-20 items-center">
-                <div>
-                    <p class="text-xl lg:text-2xl text-gray-700 leading-relaxed mb-12 font-light">
-                        Waliji Wellness Ltd is a UK-registered company that promotes wellness, fitness, and health-related products through online advertising and affiliate marketing. We help global wellness brands connect with audiences through engaging digital campaigns and social media promotions.
-                    </p>
-                    <div class="grid grid-cols-2 gap-8">
-                        <div class="stats-counter text-center p-8 rounded-3xl shadow-lg">
-                            <div class="text-4xl lg:text-5xl font-black gradient-text mb-4">15+</div>
-                            <div class="text-sm font-semibold text-gray-600 tracking-wide">CAMPAIGNS LAUNCHED</div>
-                        </div>
-                        <div class="stats-counter text-center p-8 rounded-3xl shadow-lg">
-                            <div class="text-4xl lg:text-5xl font-black gradient-text mb-4">4+</div>
-                            <div class="text-sm font-semibold text-gray-600 tracking-wide">BRAND PARTNERS</div>
-                        </div>
-                    </div>
-                    <div class="grid grid-cols-2 gap-8 mt-8">
-                        <div class="stats-counter text-center p-8 rounded-3xl shadow-lg">
-                            <div class="text-4xl lg:text-5xl font-black gradient-text mb-4">5K+</div>
-                            <div class="text-sm font-semibold text-gray-600 tracking-wide">AUDIENCE REACHED</div>
-                        </div>
-                        <div class="stats-counter text-center p-8 rounded-3xl shadow-lg">
-                            <div class="text-4xl lg:text-5xl font-black gradient-text mb-4">100%</div>
-                            <div class="text-sm font-semibold text-gray-600 tracking-wide">CLIENT SATISFACTION</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="relative">
-                    <!-- Background decoration -->
-                    <div class="absolute inset-0 bg-gradient-to-br from-green-100 to-blue-100 rounded-3xl transform rotate-3"></div>
-                    <div class="glass-effect rounded-3xl p-12 shadow-2xl relative z-10">
-                        <svg class="w-full h-80" viewBox="0 0 320 280" fill="none">
-                            <!-- Digital marketing dashboard -->
-                            <defs>
-                                <linearGradient id="dashGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
-                                    <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
-                                </linearGradient>
-                            </defs>
-                            
-                            <!-- Main dashboard -->
-                            <rect x="40" y="40" width="240" height="200" rx="20" fill="white" stroke="#e5e7eb" stroke-width="2"/>
-                            
-                            <!-- Header bar -->
-                            <rect x="60" y="60" width="200" height="12" rx="6" fill="url(#dashGrad)"/>
-                            
-                            <!-- Content bars -->
-                            <rect x="60" y="90" width="160" height="8" rx="4" fill="#d1d5db"/>
-                            <rect x="60" y="110" width="180" height="8" rx="4" fill="#d1d5db"/>
-                            <rect x="60" y="130" width="140" height="8" rx="4" fill="#d1d5db"/>
-                            
-                            <!-- Chart area -->
-                            <rect x="60" y="160" width="200" height="60" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
-                            
-                            <!-- Chart bars -->
-                            <rect x="80" y="190" width="12" height="20" rx="2" fill="#10b981"/>
-                            <rect x="100" y="180" width="12" height="30" rx="2" fill="#3b82f6"/>
-                            <rect x="120" y="185" width="12" height="25" rx="2" fill="#10b981"/>
-                            <rect x="140" y="175" width="12" height="35" rx="2" fill="#3b82f6"/>
-                            <rect x="160" y="170" width="12" height="40" rx="2" fill="#10b981"/>
-                            <rect x="180" y="165" width="12" height="45" rx="2" fill="#3b82f6"/>
-                            <rect x="200" y="160" width="12" height="50" rx="2" fill="#10b981"/>
-                            <rect x="220" y="155" width="12" height="55" rx="2" fill="#3b82f6"/>
-                            
-                            <!-- Success indicator -->
-                            <circle cx="240" cy="100" r="25" fill="#10b981"/>
-                            <path d="M230 100 L237 107 L250 90" stroke="white" stroke-width="3" fill="none" stroke-linecap="round"/>
-                            
-                            <!-- Floating elements -->
-                            <circle cx="100" cy="20" r="12" fill="#10b981" opacity="0.8"/>
-                            <circle cx="250" cy="30" r="8" fill="#3b82f6" opacity="0.8"/>
-                            <circle cx="300" cy="260" r="10" fill="#10b981" opacity="0.8"/>
-                            <circle cx="20" cy="200" r="6" fill="#3b82f6" opacity="0.8"/>
-                            
-                            <!-- Connection lines -->
-                            <path d="M100 32 L80 60" stroke="#10b981" stroke-width="2" opacity="0.5"/>
-                            <path d="M250 38 L240 75" stroke="#3b82f6" stroke-width="2" opacity="0.5"/>
-                        </svg>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    const dataHandler = {
+      onDataChanged(data) {}
+    };
 
-    <!-- Services Section -->
-    <section id="services" class="py-32 bg-gradient-to-b from-gray-50 to-white relative">
-        <div class="section-divider absolute top-0 left-0 right-0"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-20">
-                <div class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-green-50 to-blue-50 rounded-full border border-green-200 mb-8">
-                    <span class="text-sm font-bold gradient-text tracking-wide">OUR EXPERTISE</span>
-                </div>
-                <h2 class="text-4xl lg:text-6xl font-black text-gray-900 mb-8 text-shadow">Our Services</h2>
-                <div class="w-32 h-1.5 bg-gradient-to-r from-green-500 to-blue-500 mx-auto rounded-full mb-8"></div>
-                <p class="text-xl lg:text-2xl text-gray-600 max-w-4xl mx-auto font-light leading-relaxed">
-                    We offer comprehensive digital marketing solutions to help wellness brands reach their target audiences effectively and drive meaningful engagement.
-                </p>
-            </div>
-            <div class="grid md:grid-cols-3 gap-10">
-                <div class="premium-card rounded-3xl p-10 shadow-lg group">
-                    <div class="w-20 h-20 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-105 transition-transform duration-300">
-                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-black text-gray-900 mb-6 text-shadow">Affiliate Marketing</h3>
-                    <p class="text-gray-600 leading-relaxed text-lg font-light mb-6">
-                        Strategic partnerships with wellness influencers and content creators to promote health and fitness products through authentic recommendations and trusted endorsements.
-                    </p>
-                    <div class="flex items-center text-green-600 font-semibold group-hover:translate-x-2 transition-transform duration-300">
-                        <span class="text-sm tracking-wide">LEARN MORE</span>
-                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                        </svg>
-                    </div>
-                </div>
-                <div class="premium-card rounded-3xl p-10 shadow-lg group">
-                    <div class="w-20 h-20 bg-gradient-to-br from-teal-500 to-teal-600 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-105 transition-transform duration-300">
-                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-black text-gray-900 mb-6 text-shadow">Digital Campaign Management</h3>
-                    <p class="text-gray-600 leading-relaxed text-lg font-light mb-6">
-                        End-to-end management of digital advertising campaigns across multiple platforms to maximize reach, engagement, and conversion rates for wellness brands.
-                    </p>
-                    <div class="flex items-center text-blue-600 font-semibold group-hover:translate-x-2 transition-transform duration-300">
-                        <span class="text-sm tracking-wide">LEARN MORE</span>
-                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                        </svg>
-                    </div>
-                </div>
-                <div class="premium-card rounded-3xl p-10 shadow-lg group">
-                    <div class="w-20 h-20 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-105 transition-transform duration-300">
-                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2m-9 0h10m-10 0a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V6a2 2 0 00-2-2M9 12l2 2 4-4"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-black text-gray-900 mb-6 text-shadow">Social Media Product Promotion</h3>
-                    <p class="text-gray-600 leading-relaxed text-lg font-light mb-6">
-                        Creative social media strategies and content creation to showcase wellness products and build engaged communities around health and fitness brands.
-                    </p>
-                    <div class="flex items-center text-purple-600 font-semibold group-hover:translate-x-2 transition-transform duration-300">
-                        <span class="text-sm tracking-wide">LEARN MORE</span>
-                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                        </svg>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    async function onConfigChange(newConfig) {
+      config = { ...config, ...newConfig };
+      
+      const headlineEl = document.getElementById('headline');
+      if (headlineEl) {
+        headlineEl.innerHTML = config.headline.includes('Energized') 
+          ? config.headline.replace('Energized', '<span style="background: linear-gradient(135deg, #E08A76 0%, #E3B44A 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Energized</span>')
+          : config.headline;
+      }
+      
+      const subheadlineEl = document.getElementById('subheadline');
+      if (subheadlineEl) subheadlineEl.textContent = config.subheadline;
+      
+      const ctaTextEl = document.getElementById('cta-text');
+      if (ctaTextEl) ctaTextEl.textContent = config.cta_button_text;
+      
+      const benefit1El = document.getElementById('benefit-1-title');
+      if (benefit1El) benefit1El.textContent = config.benefit_1;
+      
+      const benefit2El = document.getElementById('benefit-2-title');
+      if (benefit2El) benefit2El.textContent = config.benefit_2;
+      
+      const benefit3El = document.getElementById('benefit-3-title');
+      if (benefit3El) benefit3El.textContent = config.benefit_3;
+      
+      const benefit4El = document.getElementById('benefit-4-title');
+      if (benefit4El) benefit4El.textContent = config.benefit_4;
+    }
 
-    <!-- Contact Form Section -->
-    <section id="contact" class="py-32 bg-gradient-to-b from-white to-gray-50 relative">
-        <div class="section-divider absolute top-0 left-0 right-0"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-20">
-                <div class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-green-50 to-blue-50 rounded-full border border-green-200 mb-8">
-                    <span class="text-sm font-bold gradient-text tracking-wide">JOIN OUR COMMUNITY</span>
-                </div>
-                <h2 class="text-4xl lg:text-6xl font-black text-gray-900 mb-8 text-shadow">Join Our Wellness Community</h2>
-                <div class="w-32 h-1.5 bg-gradient-to-r from-green-500 to-blue-500 mx-auto rounded-full mb-8"></div>
-                <p class="text-xl lg:text-2xl text-gray-600 max-w-4xl mx-auto font-light leading-relaxed">
-                    Stay connected with the latest wellness trends and marketing opportunities. Join our exclusive community today and unlock premium insights!
-                </p>
-            </div>
-            <div class="max-w-3xl mx-auto">
-                <form class="glass-effect rounded-3xl p-12 shadow-2xl border border-gray-200" onsubmit="handleFormSubmit(event)">
-                    <div class="grid md:grid-cols-2 gap-8 mb-8">
-                        <div>
-                            <label for="fullName" class="block text-sm font-bold text-gray-700 mb-3 tracking-wide">FULL NAME</label>
-                            <input type="text" id="fullName" name="fullName" required class="premium-input w-full px-6 py-4 rounded-2xl text-lg font-medium bg-white shadow-sm">
-                        </div>
-                        <div>
-                            <label for="email" class="block text-sm font-bold text-gray-700 mb-3 tracking-wide">EMAIL ADDRESS</label>
-                            <input type="email" id="email" name="email" required class="premium-input w-full px-6 py-4 rounded-2xl text-lg font-medium bg-white shadow-sm">
-                        </div>
-                    </div>
-                    <div class="grid md:grid-cols-2 gap-8 mb-12">
-                        <div>
-                            <label for="age" class="block text-sm font-bold text-gray-700 mb-3 tracking-wide">AGE</label>
-                            <input type="number" id="age" name="age" min="18" max="100" required class="premium-input w-full px-6 py-4 rounded-2xl text-lg font-medium bg-white shadow-sm">
-                        </div>
-                        <div>
-                            <label for="gender" class="block text-sm font-bold text-gray-700 mb-3 tracking-wide">GENDER</label>
-                            <select id="gender" name="gender" required class="premium-input w-full px-6 py-4 rounded-2xl text-lg font-medium bg-white shadow-sm">
-                                <option value="">Select Gender</option>
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                    </div>
-                    <button type="submit" class="premium-button w-full text-white font-black py-6 px-12 rounded-2xl text-xl flex items-center justify-center group">
-                        <span class="mr-4">Join Our Wellness Community</span>
-                        <svg class="w-6 h-6 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                        </svg>
-                    </button>
-                </form>
-                <div id="successMessage" class="hidden mt-8 glass-effect p-8 border border-green-200 text-green-700 rounded-3xl shadow-xl">
-                    <div class="flex items-center justify-center">
-                        <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mr-4">
-                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-black text-green-800 mb-2">Welcome to Our Community!</h3>
-                            <p class="text-green-700 font-medium">Thank you for joining our wellness community! We'll be in touch soon with exciting wellness opportunities and exclusive insights.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    function mapToCapabilities(config) {
+      return {
+        recolorables: [
+          {
+            get: () => config.background_color || defaultConfig.background_color,
+            set: (value) => {
+              config.background_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ background_color: value });
+            }
+          },
+          {
+            get: () => config.secondary_color || defaultConfig.secondary_color,
+            set: (value) => {
+              config.secondary_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ secondary_color: value });
+            }
+          },
+          {
+            get: () => config.text_color || defaultConfig.text_color,
+            set: (value) => {
+              config.text_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ text_color: value });
+            }
+          },
+          {
+            get: () => config.primary_color || defaultConfig.primary_color,
+            set: (value) => {
+              config.primary_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ primary_color: value });
+            }
+          },
+          {
+            get: () => config.accent_color || defaultConfig.accent_color,
+            set: (value) => {
+              config.accent_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ accent_color: value });
+            }
+          }
+        ],
+        borderables: [],
+        fontEditable: undefined,
+        fontSizeable: undefined
+      };
+    }
 
-    <!-- Footer -->
-    <footer class="bg-gradient-to-b from-gray-900 to-black text-white py-20 relative overflow-hidden">
-        <!-- Background decoration -->
-        <div class="absolute inset-0">
-            <div class="floating-element absolute top-20 left-20 w-32 h-32 bg-gradient-to-br from-green-500/10 to-emerald-500/10 rounded-full"></div>
-            <div class="floating-element absolute bottom-20 right-20 w-24 h-24 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 rounded-full"></div>
-        </div>
-        
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid md:grid-cols-4 gap-12 mb-16">
-                <div class="md:col-span-2">
-                    <div class="flex items-center mb-6">
-                        <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mr-4 icon-glow">
-                            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-black text-shadow">Waliji Wellness Ltd</h3>
-                            <p class="text-sm gradient-text font-semibold">Digital Marketing Excellence</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-300 text-lg leading-relaxed font-light mb-8">
-                        Empowering health and wellness brands through strategic digital marketing campaigns, affiliate partnerships, and innovative social media promotion strategies.
-                    </p>
-                    <div class="flex space-x-6">
-                        <div class="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center hover:bg-white/20 transition-all duration-300 cursor-pointer">
-                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
-                            </svg>
-                        </div>
-                        <div class="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center hover:bg-white/20 transition-all duration-300 cursor-pointer">
-                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
-                            </svg>
-                        </div>
-                        <div class="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center hover:bg-white/20 transition-all duration-300 cursor-pointer">
-                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="text-xl font-black mb-6 text-shadow">Services</h4>
-                    <ul class="space-y-4">
-                        <li><a href="#" class="text-gray-300 hover:text-green-400 transition-colors font-medium">Affiliate Marketing</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-green-400 transition-colors font-medium">Digital Campaign Management</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-green-400 transition-colors font-medium">Social Media Promotion</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-green-400 transition-colors font-medium">Brand Partnerships</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-xl font-black mb-6 text-shadow">Company</h4>
-                    <ul class="space-y-4">
-                        <li><span class="text-gray-300 font-medium">UK Registered Business</span></li>
-                        <li><span class="text-gray-300 font-medium">Professional Marketing</span></li>
-                        <li><span class="text-gray-300 font-medium">Global Wellness Focus</span></li>
-                        <li><span class="text-gray-300 font-medium">Trusted by 4+ Brands</span></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="section-divider mb-8"></div>
-            
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 font-medium text-lg">© 2025 Waliji Wellness Ltd — Registered in England and Wales.</p>
-                <div class="flex items-center mt-4 md:mt-0">
-                    <span class="w-3 h-3 bg-green-400 rounded-full mr-3 animate-pulse"></span>
-                    <span class="text-gray-300 font-medium">Professional • Trusted • Results-Driven</span>
-                </div>
-            </div>
-        </div>
-    </footer>
+    function mapToEditPanelValues(config) {
+      return new Map([
+        ["headline", config.headline || defaultConfig.headline],
+        ["subheadline", config.subheadline || defaultConfig.subheadline],
+        ["cta_button_text", config.cta_button_text || defaultConfig.cta_button_text],
+        ["benefit_1", config.benefit_1 || defaultConfig.benefit_1],
+        ["benefit_2", config.benefit_2 || defaultConfig.benefit_2],
+        ["benefit_3", config.benefit_3 || defaultConfig.benefit_3],
+        ["benefit_4", config.benefit_4 || defaultConfig.benefit_4]
+      ]);
+    }
 
-    <script>
-        function handleFormSubmit(event) {
-            event.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(event.target);
-            const data = {
-                fullName: formData.get('fullName'),
-                email: formData.get('email'),
-                age: formData.get('age'),
-                gender: formData.get('gender')
-            };
-            
-            // Simulate form processing
-            console.log('Form submitted:', data);
-            
-            // Show success message
-            document.getElementById('successMessage').classList.remove('hidden');
-            
-            // Reset form
-            event.target.reset();
-            
-            // Scroll to success message
-            document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
+    async function handleFormSubmit(e) {
+      e.preventDefault();
+      
+      if (isSubmitting) return;
+      
+      const nameInput = document.getElementById('name');
+      const emailInput = document.getElementById('email');
+      const submitBtn = document.getElementById('submit-btn');
+      const formContainer = document.getElementById('form-container');
+      const successMessage = document.getElementById('success-message');
+      
+      const name = nameInput.value.trim();
+      const email = emailInput.value.trim();
+      
+      if (!name || !email) return;
+      
+      isSubmitting = true;
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = `
+        <svg class="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+        <span>Processing...</span>
+      `;
+      
+      if (window.dataSdk) {
+        const result = await window.dataSdk.create({
+          name: name,
+          email: email,
+          submitted_at: new Date().toISOString()
         });
-    </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9954b58252819197',t:'MTc2MTU5NDQ4Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+        
+        if (result.isError) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = `<span>${config.cta_button_text || defaultConfig.cta_button_text}</span>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+            </svg>`;
+          isSubmitting = false;
+          
+          const errorDiv = document.createElement('div');
+          errorDiv.style.cssText = 'margin-top: 0.5rem; text-align: center; font-size: 0.875rem; color: #dc2626;';
+          errorDiv.textContent = 'Something went wrong. Please try again.';
+          submitBtn.parentNode.insertBefore(errorDiv, submitBtn.nextSibling);
+          setTimeout(() => errorDiv.remove(), 3000);
+          return;
+        }
+      }
+      
+      formContainer.classList.add('hidden');
+      successMessage.classList.remove('hidden');
+      
+      setTimeout(() => {
+        window.open('https://example.com/offer', '_blank', 'noopener,noreferrer');
+      }, 2500);
+    }
+    
+    // Countdown Timer
+    function updateCountdown() {
+      const endTime = new Date();
+      endTime.setHours(23, 59, 59, 999);
+      
+      const now = new Date();
+      const diff = endTime - now;
+      
+      if (diff <= 0) {
+        endTime.setDate(endTime.getDate() + 1);
+      }
+      
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+      
+      const hoursEl = document.getElementById('hours');
+      const minutesEl = document.getElementById('minutes');
+      const secondsEl = document.getElementById('seconds');
+      
+      if (hoursEl) hoursEl.textContent = String(hours).padStart(2, '0');
+      if (minutesEl) minutesEl.textContent = String(minutes).padStart(2, '0');
+      if (secondsEl) secondsEl.textContent = String(seconds).padStart(2, '0');
+    }
+    
+    // Sticky nav effect
+    function handleScroll() {
+      const nav = document.getElementById('main-nav');
+      if (nav) {
+        if (window.scrollY > 50) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+      }
+    }
+    
+    // FAQ toggle
+    function toggleFaq(index) {
+      const buttons = document.querySelectorAll('.faq-button');
+      const answers = document.querySelectorAll('.faq-answer');
+      const icons = document.querySelectorAll('.faq-icon');
+      
+      answers.forEach((answer, i) => {
+        if (i === index) {
+          answer.classList.toggle('active');
+          icons[i].classList.toggle('active');
+        } else {
+          answer.classList.remove('active');
+          icons[i].classList.remove('active');
+        }
+      });
+    }
+    
+    // Animate member count
+    function animateMemberCount() {
+      const countEl = document.getElementById('member-count');
+      if (!countEl) return;
+      
+      const target = 47243;
+      const duration = 2000;
+      const start = target - 100;
+      const increment = (target - start) / (duration / 16);
+      let current = start;
+      
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          countEl.textContent = target.toLocaleString();
+          clearInterval(timer);
+        } else {
+          countEl.textContent = Math.floor(current).toLocaleString();
+        }
+      }, 16);
+    }
+
+    async function init() {
+      if (window.elementSdk) {
+        window.elementSdk.init({
+          defaultConfig,
+          onConfigChange,
+          mapToCapabilities,
+          mapToEditPanelValues
+        });
+      }
+      
+      if (window.dataSdk) {
+        await window.dataSdk.init(dataHandler);
+      }
+      
+      const form = document.getElementById('lead-form');
+      if (form) {
+        form.addEventListener('submit', handleFormSubmit);
+      }
+      
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+      
+      window.addEventListener('scroll', handleScroll);
+      
+      setTimeout(animateMemberCount, 500);
+      
+      await onConfigChange(config);
+    }
+
+    init();
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c05c1f6e31d0868',t:'MTc2ODgxOTY4NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
